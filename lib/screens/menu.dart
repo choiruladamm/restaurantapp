@@ -270,12 +270,13 @@ class _MenuScreenState extends State<MenuScreen> {
                       width: 90,
                       height: 35,
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Text(
                             'View all',
                             style: GoogleFonts.poppins(
                               color: Colors.grey,
-                              fontSize: 15,
+                              fontSize: 14,
                               fontWeight: FontWeight.w500,
                             ),
                           ),
@@ -424,7 +425,7 @@ class _MenuScreenState extends State<MenuScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Icon(Icons.icecream, color: Colors.orange),
-                          SizedBox(width: 10),
+                          SizedBox(width: 5),
                           Text(
                             'Cream',
                             style:
@@ -460,12 +461,13 @@ class _MenuScreenState extends State<MenuScreen> {
                       width: 90,
                       height: 35,
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Text(
                             'View all',
                             style: GoogleFonts.poppins(
                               color: Colors.grey,
-                              fontSize: 15,
+                              fontSize: 14,
                               fontWeight: FontWeight.w500,
                             ),
                           ),
