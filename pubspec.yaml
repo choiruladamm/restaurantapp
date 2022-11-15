@@ -38,6 +38,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   google_nav_bar: ^5.0.6
   unicons: ^2.1.0
+  iconsax: ^0.0.8
+  font_awesome_flutter: ^10.2.1
   google_fonts: ^3.0.1
 
 dev_dependencies:
