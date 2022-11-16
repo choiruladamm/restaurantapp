@@ -4,6 +4,7 @@
 // ignore_for_file: unused_local_variable
 // ignore_for_file: avoid_print
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -492,7 +493,8 @@ class _MenuScreenState extends State<MenuScreen> {
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 crossAxisSpacing: 12.0,
-                mainAxisSpacing: 12.0
+                mainAxisSpacing: 12.0,
+                mainAxisExtent: 210,
               ),
               itemCount: gridContentRecommended.length,
               itemBuilder: (context, index) {
@@ -501,10 +503,56 @@ class _MenuScreenState extends State<MenuScreen> {
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(20),
                   ),
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Image.network(
+                          "${gridContentRecommended.elementAt(index)['images']}",
+                          height: 120,
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 15, right: 15, bottom: 15),
+                        child: Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  "${gridContentRecommended.elementAt(index)['judul']}",
+                                  style: GoogleFonts.poppins(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: 5),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  "${gridContentRecommended.elementAt(index)['harga']}",
+                                  style: GoogleFonts.poppins(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 18,
+                                  ),
+                                ),
+                                SizedBox(width: 45),
+                                Icon(CupertinoIcons.heart, color: Colors.red),
+                                Icon(UniconsLine.shopping_cart),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 );
               },
             ),
-          )
+          ),
         ],
       ),
     );
