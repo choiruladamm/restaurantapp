@@ -4,13 +4,13 @@
 // ignore_for_file: unused_local_variable
 // ignore_for_file: avoid_print
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:restaurant_app/pallete.dart';
 import 'package:restaurant_app/widget/clipper.dart';
+import 'package:restaurant_app/widget/recommended.dart';
 import 'package:unicons/unicons.dart';
 
 class MenuScreen extends StatefulWidget {
@@ -293,7 +293,7 @@ class _MenuScreenState extends State<MenuScreen> {
 
           // content top categories
           Padding(
-            padding: const EdgeInsets.only(top: 15, left: 20),
+            padding: const EdgeInsets.only(top: 25, left: 20),
             child: SizedBox(
               height: 45,
               width: size.width,
@@ -320,8 +320,8 @@ class _MenuScreenState extends State<MenuScreen> {
                           SizedBox(width: 10),
                           Text(
                             'Vegan',
-                            style:
-                                GoogleFonts.poppins(fontWeight: FontWeight.w500),
+                            style: GoogleFonts.poppins(
+                                fontWeight: FontWeight.w500),
                           ),
                         ],
                       ),
@@ -343,12 +343,13 @@ class _MenuScreenState extends State<MenuScreen> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(FontAwesomeIcons.bowlFood, color: Colors.deepOrange),
+                          Icon(FontAwesomeIcons.bowlFood,
+                              color: Colors.deepOrange),
                           SizedBox(width: 10),
                           Text(
                             'Beef',
-                            style:
-                                GoogleFonts.poppins(fontWeight: FontWeight.w500),
+                            style: GoogleFonts.poppins(
+                                fontWeight: FontWeight.w500),
                           ),
                         ],
                       ),
@@ -374,8 +375,8 @@ class _MenuScreenState extends State<MenuScreen> {
                           SizedBox(width: 10),
                           Text(
                             'Coffe',
-                            style:
-                                GoogleFonts.poppins(fontWeight: FontWeight.w500),
+                            style: GoogleFonts.poppins(
+                                fontWeight: FontWeight.w500),
                           ),
                         ],
                       ),
@@ -401,8 +402,8 @@ class _MenuScreenState extends State<MenuScreen> {
                           SizedBox(width: 10),
                           Text(
                             'Donuts',
-                            style:
-                                GoogleFonts.poppins(fontWeight: FontWeight.w500),
+                            style: GoogleFonts.poppins(
+                                fontWeight: FontWeight.w500),
                           ),
                         ],
                       ),
@@ -428,8 +429,8 @@ class _MenuScreenState extends State<MenuScreen> {
                           SizedBox(width: 5),
                           Text(
                             'Cream',
-                            style:
-                                GoogleFonts.poppins(fontWeight: FontWeight.w500),
+                            style: GoogleFonts.poppins(
+                                fontWeight: FontWeight.w500),
                           ),
                         ],
                       ),
@@ -443,7 +444,7 @@ class _MenuScreenState extends State<MenuScreen> {
 
           // Recommended
           Padding(
-            padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
+            padding: const EdgeInsets.only(top: 30, left: 20, right: 20),
             child: Column(
               children: [
                 Row(
@@ -482,6 +483,28 @@ class _MenuScreenState extends State<MenuScreen> {
             ),
           ),
 
+          // content recommeded
+          Padding(
+            padding: EdgeInsets.only(left: 20, right: 20, bottom: 20),
+            child: GridView.builder(
+              physics: NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 12.0,
+                mainAxisSpacing: 12.0
+              ),
+              itemCount: gridContentRecommended.length,
+              itemBuilder: (context, index) {
+                return Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                );
+              },
+            ),
+          )
         ],
       ),
     );
