@@ -11,6 +11,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:restaurant_app/pallete.dart';
 import 'package:restaurant_app/widget/clipper.dart';
+import 'package:restaurant_app/widget/index_1.dart';
+import 'package:restaurant_app/widget/index_2.dart';
 import 'package:restaurant_app/widget/recommended.dart';
 import 'package:unicons/unicons.dart';
 
@@ -22,6 +24,14 @@ class MenuScreen extends StatefulWidget {
 }
 
 class _MenuScreenState extends State<MenuScreen> {
+  void tapped(int index) {
+    if (index == 0) {
+      Navigator.of(context).push(NavIndexSatu());
+    } else if (index == 1) {
+      Navigator.of(context).push(NavIndexDua());
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -78,6 +88,7 @@ class _MenuScreenState extends State<MenuScreen> {
                 ),
               ),
 
+              // custom app bar
               Padding(
                 padding: const EdgeInsets.only(top: 50, left: 20, right: 20),
                 child: Column(
@@ -498,56 +509,62 @@ class _MenuScreenState extends State<MenuScreen> {
               ),
               itemCount: gridContentRecommended.length,
               itemBuilder: (context, index) {
-                return Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Image.network(
-                          "${gridContentRecommended.elementAt(index)['images']}",
-                          height: 120,
+                return GestureDetector(
+                  onTap: () => tapped(index),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Image.network(
+                            "${gridContentRecommended.elementAt(index)['images']}",
+                            height: 120,
+                          ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 15, right: 15, bottom: 15),
-                        child: Column(
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "${gridContentRecommended.elementAt(index)['judul']}",
-                                  style: GoogleFonts.poppins(
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 16,
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              left: 15, right: 15, bottom: 15),
+                          child: Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    "${gridContentRecommended.elementAt(index)['judul']}",
+                                    style: GoogleFonts.poppins(
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 16,
+                                    ),
                                   ),
-                                ),
-                              ],
-                            ),
-                            SizedBox(height: 5),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "${gridContentRecommended.elementAt(index)['harga']}",
-                                  style: GoogleFonts.poppins(
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 18,
+                                ],
+                              ),
+                              SizedBox(height: 5),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    "${gridContentRecommended.elementAt(index)['harga']}",
+                                    style: GoogleFonts.poppins(
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 18,
+                                    ),
                                   ),
-                                ),
-                                SizedBox(width: 45),
-                                Icon(CupertinoIcons.heart, color: Colors.red),
-                                Icon(UniconsLine.shopping_cart),
-                              ],
-                            ),
-                          ],
+                                  SizedBox(width: 45),
+                                  Icon(CupertinoIcons.heart, color: Colors.red),
+                                  Icon(Icons.shopping_cart_checkout),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 );
               },
@@ -557,4 +574,43 @@ class _MenuScreenState extends State<MenuScreen> {
       ),
     );
   }
+}
+
+
+// Animate Navigate Hehe 
+Route NavIndexSatu() {
+  return PageRouteBuilder(
+    pageBuilder: (context, animation, secondaryAnimation) => const IndexSatu(),
+    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+      const begin = Offset(0.0, 0.5);
+      const end = Offset.zero;
+      const curve = Curves.easeOutQuint;
+
+      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+      return SlideTransition(
+        position: animation.drive(tween),
+        child: child,
+      );
+    },
+  );
+}
+
+// Animate Navigate Hehe 
+Route NavIndexDua() {
+  return PageRouteBuilder(
+    pageBuilder: (context, animation, secondaryAnimation) => const IndexDua(),
+    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+      const begin = Offset(0.0, 0.5);
+      const end = Offset.zero;
+      const curve = Curves.easeOutQuint;
+
+      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+      return SlideTransition(
+        position: animation.drive(tween),
+        child: child,
+      );
+    },
+  );
 }
