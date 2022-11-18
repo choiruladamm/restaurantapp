@@ -58,3 +58,27 @@ final List<Map<String, dynamic>> gridContentRecommended =[
   },
   
 ];
+
+final List<Map<String, dynamic>> gridContentCheckout = [
+  {
+    "judul": "Ice Hojicha",
+    "subjudul": "JanjiJiwa~ Ice Hojicha",
+    "harga": "\$4",
+    "images": "https://user-images.githubusercontent.com/109071310/202222685-eba9bcdf-ab15-4a1c-8984-5ea62a3f1df7.png"
+
+  },
+  {
+    "judul": "Ice Kopi Pokat",
+    "subjudul": "JanjiJiwa~ Ice Kopi Pokat",
+    "harga": "\$5",
+    "images": "https://user-images.githubusercontent.com/109071310/202223317-9028cddf-3dda-4f31-86b3-070aaa304bf1.png"
+
+  },
+  {
+    "judul": "Spicy Chicken",
+    "subjudul": "Janji Jiwa - Ice Hojicha",
+    "harga": "\$6",
+    "images": "https://user-images.githubusercontent.com/109071310/202223444-48df133a-bb3c-4ae0-a0c6-c72e9a89345b.png"
+
+  },
+];

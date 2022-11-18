@@ -10,6 +10,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:restaurant_app/pallete.dart';
+import 'package:restaurant_app/screens/checkout.dart';
 import 'package:restaurant_app/widget/clipper.dart';
 import 'package:restaurant_app/widget/index_1.dart';
 import 'package:restaurant_app/widget/index_2.dart';
@@ -121,32 +122,37 @@ class _MenuScreenState extends State<MenuScreen> {
                         // cart button
                         Padding(
                           padding: const EdgeInsets.only(top: 10),
-                          child: Container(
-                            alignment: Alignment.center,
-                            width: 65,
-                            height: 35,
-                            decoration: BoxDecoration(
-                              color: colorLoro,
-                              borderRadius:
-                                  BorderRadiusDirectional.circular(10),
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(
-                                  UniconsLine.shopping_cart,
-                                  color: colorSiji,
-                                ),
-                                SizedBox(width: 2),
-                                Text(
-                                  '9',
-                                  style: GoogleFonts.poppins(
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>CheckOut()));
+                            },
+                            child: Container(
+                              alignment: Alignment.center,
+                              width: 65,
+                              height: 35,
+                              decoration: BoxDecoration(
+                                color: colorLoro,
+                                borderRadius:
+                                    BorderRadiusDirectional.circular(10),
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    UniconsLine.shopping_cart,
                                     color: colorSiji,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w500,
                                   ),
-                                )
-                              ],
+                                  SizedBox(width: 2),
+                                  Text(
+                                    '9',
+                                    style: GoogleFonts.poppins(
+                                      color: colorSiji,
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  )
+                                ],
+                              ),
                             ),
                           ),
                         ),
