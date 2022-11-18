@@ -561,7 +561,7 @@ class _MenuScreenState extends State<MenuScreen> {
                                       fontSize: 18,
                                     ),
                                   ),
-                                  SizedBox(width: 45),
+                                  SizedBox(width: 25),
                                   Icon(CupertinoIcons.heart, color: Colors.red),
                                   Icon(Icons.shopping_cart_checkout),
                                 ],
