@@ -167,12 +167,12 @@ class _CheckOutState extends State<CheckOut> {
                                         ),
                                       ),
                                     ),
-                                    SizedBox(width: 110),
+                                    SizedBox(width: 85),
                                     Text(
                                       '${gridContentCheckout.elementAt(index)['harga']}',
                                       style: GoogleFonts.poppins(
                                         fontWeight: FontWeight.w600,
-                                        fontSize: 20,
+                                        fontSize: 16,
                                         color: colorSiji,
                                       ),
                                     ),

@@ -14,6 +14,7 @@ import 'package:restaurant_app/screens/checkout.dart';
 import 'package:restaurant_app/widget/clipper.dart';
 import 'package:restaurant_app/widget/index_1.dart';
 import 'package:restaurant_app/widget/index_2.dart';
+import 'package:restaurant_app/widget/index_3.dart';
 import 'package:restaurant_app/widget/recommended.dart';
 import 'package:unicons/unicons.dart';
 
@@ -30,6 +31,8 @@ class _MenuScreenState extends State<MenuScreen> {
       Navigator.of(context).push(NavIndexSatu());
     } else if (index == 1) {
       Navigator.of(context).push(NavIndexDua());
+    } else if (index == 2) {
+      Navigator.of(context).push(NavIndexTiga());
     }
   }
 
@@ -269,7 +272,7 @@ class _MenuScreenState extends State<MenuScreen> {
           ),
 
           // Top categories
-          Padding(
+          Padding(  
             padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
             child: Column(
               children: [
@@ -606,6 +609,25 @@ Route NavIndexSatu() {
 Route NavIndexDua() {
   return PageRouteBuilder(
     pageBuilder: (context, animation, secondaryAnimation) => const IndexDua(),
+    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+      const begin = Offset(0.0, 0.5);
+      const end = Offset.zero;
+      const curve = Curves.easeOutQuint;
+
+      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+      return SlideTransition(
+        position: animation.drive(tween),
+        child: child,
+      );
+    },
+  );
+}
+
+// Animate Navigate Hehe 
+Route NavIndexTiga() {
+  return PageRouteBuilder(
+    pageBuilder: (context, animation, secondaryAnimation) => const IndexTiga(),
     transitionsBuilder: (context, animation, secondaryAnimation, child) {
       const begin = Offset(0.0, 0.5);
       const end = Offset.zero;
