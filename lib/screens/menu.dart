@@ -15,6 +15,8 @@ import 'package:restaurant_app/widget/clipper.dart';
 import 'package:restaurant_app/widget/index_1.dart';
 import 'package:restaurant_app/widget/index_2.dart';
 import 'package:restaurant_app/widget/index_3.dart';
+import 'package:restaurant_app/widget/index_4.dart';
+import 'package:restaurant_app/widget/index_5.dart';
 import 'package:restaurant_app/widget/recommended.dart';
 import 'package:unicons/unicons.dart';
 
@@ -33,6 +35,10 @@ class _MenuScreenState extends State<MenuScreen> {
       Navigator.of(context).push(NavIndexDua());
     } else if (index == 2) {
       Navigator.of(context).push(NavIndexTiga());
+    } else if (index == 3) {
+      Navigator.of(context).push(NavIndexEmpat());
+    } else if (index == 4) {
+      Navigator.of(context).push(NavIndexLima());
     }
   }
 
@@ -586,7 +592,7 @@ class _MenuScreenState extends State<MenuScreen> {
 }
 
 
-// Animate Navigate Hehe 
+// Animate Navigate indextiga Hehe 
 Route NavIndexSatu() {
   return PageRouteBuilder(
     pageBuilder: (context, animation, secondaryAnimation) => const IndexSatu(),
@@ -605,7 +611,7 @@ Route NavIndexSatu() {
   );
 }
 
-// Animate Navigate Hehe 
+// Animate Navigate indexdua Hehe 
 Route NavIndexDua() {
   return PageRouteBuilder(
     pageBuilder: (context, animation, secondaryAnimation) => const IndexDua(),
@@ -624,10 +630,48 @@ Route NavIndexDua() {
   );
 }
 
-// Animate Navigate Hehe 
+// Animate Navigate index 3 Hehe 
 Route NavIndexTiga() {
   return PageRouteBuilder(
     pageBuilder: (context, animation, secondaryAnimation) => const IndexTiga(),
+    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+      const begin = Offset(0.0, 0.5);
+      const end = Offset.zero;
+      const curve = Curves.easeOutQuint;
+
+      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+      return SlideTransition(
+        position: animation.drive(tween),
+        child: child,
+      );
+    },
+  );
+}
+
+// Animate Navigate index 4 Hehe 
+Route NavIndexEmpat() {
+  return PageRouteBuilder(
+    pageBuilder: (context, animation, secondaryAnimation) => const IndexEmpat(),
+    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+      const begin = Offset(0.0, 0.5);
+      const end = Offset.zero;
+      const curve = Curves.easeOutQuint;
+
+      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+      return SlideTransition(
+        position: animation.drive(tween),
+        child: child,
+      );
+    },
+  );
+}
+
+// Animate Navigate index 4 Hehe 
+Route NavIndexLima() {
+  return PageRouteBuilder(
+    pageBuilder: (context, animation, secondaryAnimation) => const IndexLima(),
     transitionsBuilder: (context, animation, secondaryAnimation, child) {
       const begin = Offset(0.0, 0.5);
       const end = Offset.zero;
